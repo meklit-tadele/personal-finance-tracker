@@ -27,4 +27,13 @@ print(f"Other: {other:.2f}")
 print("--------------------------------------")
 print(f"Total Expenses: {total_expenses:.2f}")
 print(f"Remaining Balance: {balance:.2f}")
+
+# Financial advice
+if balance > 0:
+    print("\n✅ Great job! You stayed within your budget.")
+elif balance == 0:
+    print("\n⚠️ You spent exactly what you earned.")
+else:
+    print("\n❌ Warning! You spent more than your income.")
+
 print("======================================")
