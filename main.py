@@ -23,36 +23,36 @@ def get_expenses():
 
 
 def save_record(income, expenses, balance):
+    with open("finance_records.txt", "a") as file:
+        file.write(f"Income: {income:.2f}\n")
+        file.write(f"Expenses: {expenses:.2f}\n")
+        file.write(f"Balance: {balance:.2f}\n")
+        file.write("--------------------------\n")
 
-    file = open("finance_records.txt", "a")
-
-    file.write(f"Income: {income}\n")
-    file.write(f"Expenses: {expenses}\n")
-    file.write(f"Balance: {balance}\n")
-    file.write("--------------------------\n")
-
-    file.close()
+    print("\n💾 Record saved successfully!")
 
 
 def display_summary(income, expenses):
-
     balance = income - expenses
 
-    print("\n========== SUMMARY ==========")
+    print("\n========== FINANCIAL SUMMARY ==========")
     print(f"Income: {income:.2f}")
-    print(f"Expenses: {expenses:.2f}")
-    print(f"Balance: {balance:.2f}")
+    print(f"Total Expenses: {expenses:.2f}")
+    print(f"Remaining Balance: {balance:.2f}")
 
     if balance > 0:
-        print("✅ Good budgeting!")
+        print("✅ Great job! You stayed within your budget.")
     elif balance == 0:
-        print("⚠️ You spent everything.")
+        print("⚠️ You spent exactly what you earned.")
     else:
-        print("❌ You spent more than you earned.")
+        print("❌ Warning! You spent more than your income.")
+
+    print("======================================")
 
     save_record(income, expenses, balance)
 
 
+# Main program
 print("================================")
 print("     PERSONAL FINANCE TRACKER")
 print("================================")
